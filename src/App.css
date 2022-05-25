@@ -1,0 +1,141 @@
+.container {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 1600px) {
+      .container {
+          max-width: 1580px;
+      }
+  }
+  @media (min-width: 1900px) {
+      .container {
+          max-width: 1880px;
+      }
+  }
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 1180px;
+    }
+  }
+
+  .login-wrapper{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+    background-image: url('./assets/images/login-background.jpg');
+    background-size: cover;
+    background-position: top;
+}
+
+.login-section{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    height: 100%;
+}
+
+.login-section *{
+    width: 100%;
+    max-width: 600px;
+    min-height: 1px;
+}
+
+.navToggleBtn{
+  display: none;
+  color: #f9f9f9;
+  font-size: 24px;
+  line-height: 32px;
+  margin-left: auto;
+}
+
+.navMenu{
+  list-style-type: none;
+  display: flex;
+  gap: 5px;
+  margin-left: 24px;
+  align-items: center;
+}
+
+.navMenu li{
+  color: #f9f9f9;
+  padding: 0px 12px;
+  margin: auto 0px;
+  cursor: pointer;
+  
+}
+
+.navMenu li>span{
+  position: relative;
+  display: inline-block;
+}
+
+.navMenu li>span::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f9f9f9;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+
+.navMenu li>span:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navModal{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  background-color: #040714;
+  opacity: 0.85;
+  min-height: 100vh;
+}
+
+.navModalMenu{
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.navModalMenu li{
+  color: #f9f9f9;
+}
+
+@media(max-width: 950px){
+  .navToggleBtn{
+    display: block;
+  }
+  .navMenu, .navLoginBtn{
+    display: none;
+  }
+}
+

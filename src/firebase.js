@@ -1,5 +1,5 @@
 import firebase from 'firebase/compat/app';
-import "firebase/firestore";
+import "firebase/compat/firestore";
 import 'firebase/compat/auth';
 import 'firebase/storage';
 
@@ -13,7 +13,7 @@ const firebaseConfig = {
   };
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
-  const db = firebaseApp.firestore;
+  const db = firebaseApp.firestore();
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
   const storage = Storage.firebaseApp;

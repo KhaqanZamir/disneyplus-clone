@@ -69,6 +69,7 @@
 .navMenu{
   list-style-type: none;
   display: flex;
+  flex: 1;
   gap: 5px;
   margin-left: 24px;
   align-items: center;
@@ -244,4 +245,41 @@
 .homeSlider img{
   width: 100%;
   height: 100%;
+}
+
+.viewerCard{
+  transition: all 300ms ease-in-out 0s;
+}
+
+.viewerCard img{
+  inset: 0px;
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  object-fit: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+}
+
+.viewerCard video{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out 0s;
+}
+
+.viewerCard:hover{
+  border: 3px solid rgb(249, 249, 249, 0.8);
+  transform: scale(1.05);
+}
+
+.viewerCard:hover video{
+  opacity: 1;
 }

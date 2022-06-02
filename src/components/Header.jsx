@@ -67,24 +67,25 @@ export default function Header() {
                 <img className='w-[70px] md:w-[100px]' src={Logo} alt="Logo" />
                 <div className='flex flex-1 align-middle'>
                     { toggle === false ? <button  className='navToggleBtn' onClick={() => setToggle(true)}><FontAwesomeIcon icon={faBars}/></button> : null }
-                    { userName ? <ul className='navMenu'>
+                    { userName ? 
+                    <ul className='navMenu'>
                         <li className=''><FontAwesomeIcon className='mr-2' icon={faHouse} /><span>HOME</span></li>
                         <li className=''><FontAwesomeIcon className='mr-2' icon={faMagnifyingGlass} /><span>SEARCH</span></li>
                         <li className=''><FontAwesomeIcon className='mr-2' icon={faPlus} /><span>WATCHLIST</span></li>
                         <li className=''><FontAwesomeIcon className='mr-2' icon={faStar} /><span>ORIGINALS</span></li>
                         <li className=''><FontAwesomeIcon className='mr-2' icon={faFilm} /><span>MOVIES</span></li>
                         <li className=''><FontAwesomeIcon className='mr-2' icon={faTv} /><span>SERIES</span></li>
-                    </ul> : null
-                    }
-                    { userName ? 
-                        <div className='dropdown ml-auto'>
-                            <img className='navLoginBtn dropBtn rounded-[50%] w-[60px]' src={userPhoto} alt="UserProfile" />
-                            <div className="dropdown-content">
-                                <p>Settings</p>
-                                <p onClick={handleAuth}>Sign out</p>
-                            </div>
-                        </div> :
-                        <button className='navLoginBtn text-white border border-white tracking-[1.5px] rounded py-1 px-8 ml-auto' onClick={handleAuth}>LOGIN</button>
+                        {
+                            userName ? <div className='dropdown ml-auto'>
+                                <img className='navLoginBtn dropBtn rounded-[50%] w-[60px]' src={userPhoto} alt="UserProfile" />
+                                <div className="dropdown-content">
+                                    <p>Settings</p>
+                                    <p onClick={handleAuth}>Sign out</p>
+                                </div>
+                            </div> : null
+                        }
+                    </ul> : 
+                    <button className='navLoginBtn text-white border border-white tracking-[1.5px] rounded py-1 px-8 ml-auto' onClick={handleAuth}>LOGIN</button>
                     }
                 </div>
             </div>

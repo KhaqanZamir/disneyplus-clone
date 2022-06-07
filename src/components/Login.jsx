@@ -7,10 +7,14 @@ import { auth, provider } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setUserLoginDetails } from '../features/user/userSlice';
+import EyeIcon from '../assets/images/eye-icon.svg';
+import EyeCloseIcon from '../assets/images/close-eye.svg';
 
 export default function Login() {
 
   const [show, setShow] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRPassword, setShowRPassword] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -54,8 +58,14 @@ export default function Login() {
           <h3 className='text-white tracking-[1.5px] font-bold text-2xl mt-5'>SIGN UP</h3>
           <div className='flex flex-wrap justify-center w-full px-5 md:px-10 my-5 gap-5'>
             <input className='w-full md:w-[60%] bg-transparent border-2 border-white leading-10 px-3 rounded' type={'email'} placeholder='Email' />
-            <input className='w-full md:w-[60%] bg-transparent border-2 border-white leading-10 px-3 rounded' type={'password'} placeholder='Password' />
-            <input className='w-full md:w-[60%] bg-transparent border-2 border-white leading-10 px-3 rounded' type={'password'} placeholder='Retype Password' />
+            <div className='relative w-full md:w-[60%]'>
+              <input className='w-full bg-transparent border-2 border-white leading-10 px-3 rounded' type={showPassword ? 'text' : 'password'} placeholder='Password'/>
+              <img className='absolute top-[50%] right-3 translate-y-[-50%] cursor-pointer' onClick={()=>setShowPassword(!showPassword)} src={showPassword ? EyeCloseIcon : EyeIcon} alt='' />
+            </div>
+            <div className='relative w-full md:w-[60%]'>
+              <input className='w-full bg-transparent border-2 border-white leading-10 px-3 rounded' type={showRPassword ? 'text' : 'password'} placeholder='Retype Password'/>
+              <img className='absolute top-[50%] right-3 translate-y-[-50%] cursor-pointer' onClick={()=>setShowRPassword(!showRPassword)} src={showRPassword ? EyeCloseIcon : EyeIcon} alt='' />
+            </div>
             <div className='w-full md:w-[60%] flex flex-wrap align-middle justify-center gap-5'>
               <button className='w-[45%] bg-blue text-white my-3 py-4 tracking-[1.5px] text-base rounded hover:bg-blue-1'>
                 SIGN UP
